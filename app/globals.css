@@ -1,0 +1,105 @@
+/* DYNAMIC THEME SYSTEM - SMOOTH & MINIMAL */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default: Midnight Purple Elegance */
+  --bg-primary: #0f0a1e;
+  --bg-secondary: #1a0f2e;
+  --text-primary: #ffffff;
+  --text-secondary: #b8b8b8;
+  --text-tertiary: #7a7a7a;
+  --accent-primary: #a78bfa;
+  --accent-secondary: #c4b5fd;
+  --grid-color: #1e1435;
+  --grid-color-strong: #2d1f4d;
+  
+  /* Fonts */
+  --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-technical: 'Monaco', 'Courier New', monospace;
+  --font-pixel: 'Courier New', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* CRITICAL: No scrolling */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  background: radial-gradient(ellipse at top, var(--bg-secondary) 0%, var(--bg-primary) 50%);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Disable scrollbar completely */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth glow effect */
+.accent-glow {
+  text-shadow: 0 0 30px var(--accent-primary);
+}
+
+.accent-border-glow {
+  box-shadow: 0 0 20px var(--accent-primary);
+}
+
+/* Custom animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.scanline-effect {
+  animation: scanline 8s linear infinite;
+}
+
+/* Smooth hover scale */
+.hover-scale {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Icon rotate on hover */
+.hover-rotate:hover {
+  transform: rotate(12deg);
+  transition: transform 0.3s ease;
+}
